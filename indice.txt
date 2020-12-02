@@ -1,0 +1,81 @@
+ROLES Y PERMISOS EN LARAVEL
+YOUTUBE
+RIMORSOFT ONLINE
+
+video 1 funcion de la practica
+ 
+video 2 instalar paquetes
+1. Laravel , 
+2. Shinobi (agregar en user el HasRolesAndPermissions para que revise roles y permisos),
+
+video 3 estructura de un sistema de roles
+3. crear BD y actualizar .env, ejecutar migrate
+4. crear el seeder PermissionsTableSeeder
+
+video 4 definir permisos
+5. crear seeder para roles, usuarios, permisos y productos. ejecutar migrate con seeder.
+    si alguien le sale "  BadMethodCallException  : This cache store does not support tagging." 
+    deben ir a el archivo ".env" y cambiar CACHE_DRIVER=file a CACHE_DRIVER=array
+
+video 5 BD
+6. crear model Product con factory, migration, controller y seeder
+7. crear seeder para Users
+
+video 6 datos para BD
+8. crear datos en seeders y factories. Para el caso de que salga el error
+    "Target class [UsersSeeder] does not exist." y que el codigo de los seeder se encuentre bien, 
+    usar el comando "composer dump-autoload" para optimizar los archivos autocargados.
+
+video 7 middleware
+9. instalar la autenticacion de laravel, "php artisan ui vue --auth"
+
+video 8 rutas y asignacion de permisos
+TIP: ya se deben tener planeadas las rutas, que es lo que se hizo cuando se crearon los seeder.
+para el sistema de roles y permisos, primero se revisa que el usuario esté logueado y enseguida 
+    se revisa si tiene los permisos.
+10. crear rutas que engloben el inicio de sesion en archivo web.php
+
+video 9 ocultar botones si no hay permisos
+11. crear botones de menu y aplicar helper "@can" en el archivo app.php
+    TIP: el acceso debe hacerse en el html y en las rutas del archivo web.php, tambien
+    se puede aplicar en el controlador respectivamente
+
+video 10 aplicando roles y permisos
+12. aplicar roles y permisos desde BD a un usuario para probar
+
+video 11 ocultar o mostrar botones segun permisos asignados
+13. crear vistas y programar controlador para pasarle datos, 
+    mostrar registros y botones con permisos, paginado
+
+video 12 metodos de controlador de productos
+
+video 13 vistas form y show de productos | debug de errores
+
+video 14 formulario crear y editar productos
+
+video 15 modulo de usuario, controller y vistas, datos
+
+video 16 modulo de usuario, controller y vistas, datos
+
+video 17 diseño edicion usuarios, listado de roles
+14. modificar la vista de edicion de usuarios, integrando el rol de usuario
+
+video 18 asignacion de roles a usuarios
+15. agregar la actualizacion de roles al usuario en el controler User metodo update.
+
+video 19 diseño del modulo roles
+16. programar metodos de RoleController y crear vistas CRUD.
+    NOTA: aqui es donde se explica como guardar registros de una tabla relacionados
+    con otro registro de otra tabla. Por ejemplo puede aplicar para el detalle de una venta
+    en este caso se hizo guardar varios roles para un usuario
+
+video 20 guardar y editar roles y permisos
+NOTA: no utilice laravelcollective, por lo que los metodos y las vistas son diferentes a lo explicado
+    en el video. Para conseguir el mismo resultado no utilice el form que se comparte en create y edit,
+    en su lugar me usé los helpers isset e if en el edit.blade.php. esta ayuda se encuentra en los 
+    comentarios del video
+
+video 21 asignar middleware a route::resource
+NOTA: definicion de permisos en un controlador de recursos, 
+    Route::resource('roles','RoleController');
+    y en el controler de Role, crear el metodo construct y mediante middleware definir los permisos
